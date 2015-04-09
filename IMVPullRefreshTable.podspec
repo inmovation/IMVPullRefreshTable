@@ -17,10 +17,10 @@ Pod::Spec.new do |s|
 
   s.name         = "IMVPullRefreshTable"
   s.version      = "0.0.1"
-  s.summary      = "A short description of IMVPullRefreshTable."
+  s.summary      = "subclass of UITableView, support pull to refresh"
 
   s.description  = <<-DESC
-                   A longer description of IMVPullRefreshTable in Markdown format.
+                    subclass of UITableView, support pull down to refresh, pull up to load more, pull down to load more.
 
                    * Think: Why did you write this? What is the focus? What does it do?
                    * CocoaPods will be using this to generate tags, and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
                    * Finally, don't worry about the indent, CocoaPods strips it!
                    DESC
 
-  s.homepage     = "http://github.com/inmovation/IMVPullRefreshTable"
+  s.homepage     = "https://github.com/inmovation/IMVPullRefreshTable"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://github.com/inmovation/IMVPullRefreshTable.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/inmovation/IMVPullRefreshTable.git", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
