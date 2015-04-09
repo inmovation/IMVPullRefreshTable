@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD01480E1AD51554003355FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD01480D1AD51554003355FD /* main.m */; };
+		AD0148111AD51554003355FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0148101AD51554003355FD /* AppDelegate.m */; };
+		AD0148141AD51554003355FD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0148131AD51554003355FD /* ViewController.m */; };
+		AD0148171AD51554003355FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD0148151AD51554003355FD /* Main.storyboard */; };
+		AD0148191AD51554003355FD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD0148181AD51554003355FD /* Images.xcassets */; };
+		AD01481C1AD51554003355FD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD01481A1AD51554003355FD /* LaunchScreen.xib */; };
+		AD0148281AD51555003355FD /* IMVPullRefreshTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0148271AD51555003355FD /* IMVPullRefreshTableTests.m */; };
+		AD0148431AD51664003355FD /* TopLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD01483F1AD51664003355FD /* TopLoadViewController.m */; };
+		AD0148441AD51664003355FD /* TopRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0148411AD51664003355FD /* TopRefreshViewController.m */; };
+		ADB696FC1AD61B3000935778 /* IMVPullRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB696FB1AD61B3000935778 /* IMVPullRefreshTableView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD0148221AD51555003355FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD0148001AD51554003355FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD0148071AD51554003355FD;
+			remoteInfo = IMVPullRefreshTable;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AD0148081AD51554003355FD /* IMVPullRefreshTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMVPullRefreshTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD01480C1AD51554003355FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD01480D1AD51554003355FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AD01480F1AD51554003355FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AD0148101AD51554003355FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD0148121AD51554003355FD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AD0148131AD51554003355FD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AD0148161AD51554003355FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AD0148181AD51554003355FD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AD01481B1AD51554003355FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		AD0148211AD51555003355FD /* IMVPullRefreshTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMVPullRefreshTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD0148261AD51555003355FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD0148271AD51555003355FD /* IMVPullRefreshTableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMVPullRefreshTableTests.m; sourceTree = "<group>"; };
+		AD01483E1AD51664003355FD /* TopLoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLoadViewController.h; sourceTree = "<group>"; };
+		AD01483F1AD51664003355FD /* TopLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLoadViewController.m; sourceTree = "<group>"; };
+		AD0148401AD51664003355FD /* TopRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopRefreshViewController.h; sourceTree = "<group>"; };
+		AD0148411AD51664003355FD /* TopRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopRefreshViewController.m; sourceTree = "<group>"; };
+		ADB696FA1AD61B3000935778 /* IMVPullRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMVPullRefreshTableView.h; sourceTree = "<group>"; };
+		ADB696FB1AD61B3000935778 /* IMVPullRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMVPullRefreshTableView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD0148051AD51554003355FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD01481E1AD51555003355FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD0147FF1AD51554003355FD = {
+			isa = PBXGroup;
+			children = (
+				AD01480A1AD51554003355FD /* IMVPullRefreshTable */,
+				AD0148241AD51555003355FD /* IMVPullRefreshTableTests */,
+				AD0148091AD51554003355FD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AD0148091AD51554003355FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD0148081AD51554003355FD /* IMVPullRefreshTable.app */,
+				AD0148211AD51555003355FD /* IMVPullRefreshTableTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD01480A1AD51554003355FD /* IMVPullRefreshTable */ = {
+			isa = PBXGroup;
+			children = (
+				ADB696F91AD61B3000935778 /* lib */,
+				AD01483E1AD51664003355FD /* TopLoadViewController.h */,
+				AD01483F1AD51664003355FD /* TopLoadViewController.m */,
+				AD0148401AD51664003355FD /* TopRefreshViewController.h */,
+				AD0148411AD51664003355FD /* TopRefreshViewController.m */,
+				AD01480F1AD51554003355FD /* AppDelegate.h */,
+				AD0148101AD51554003355FD /* AppDelegate.m */,
+				AD0148121AD51554003355FD /* ViewController.h */,
+				AD0148131AD51554003355FD /* ViewController.m */,
+				AD0148151AD51554003355FD /* Main.storyboard */,
+				AD0148181AD51554003355FD /* Images.xcassets */,
+				AD01481A1AD51554003355FD /* LaunchScreen.xib */,
+				AD01480B1AD51554003355FD /* Supporting Files */,
+			);
+			path = IMVPullRefreshTable;
+			sourceTree = "<group>";
+		};
+		AD01480B1AD51554003355FD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD01480C1AD51554003355FD /* Info.plist */,
+				AD01480D1AD51554003355FD /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD0148241AD51555003355FD /* IMVPullRefreshTableTests */ = {
+			isa = PBXGroup;
+			children = (
+				AD0148271AD51555003355FD /* IMVPullRefreshTableTests.m */,
+				AD0148251AD51555003355FD /* Supporting Files */,
+			);
+			path = IMVPullRefreshTableTests;
+			sourceTree = "<group>";
+		};
+		AD0148251AD51555003355FD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD0148261AD51555003355FD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ADB696F91AD61B3000935778 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				ADB696FA1AD61B3000935778 /* IMVPullRefreshTableView.h */,
+				ADB696FB1AD61B3000935778 /* IMVPullRefreshTableView.m */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AD0148071AD51554003355FD /* IMVPullRefreshTable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD01482B1AD51555003355FD /* Build configuration list for PBXNativeTarget "IMVPullRefreshTable" */;
+			buildPhases = (
+				AD0148041AD51554003355FD /* Sources */,
+				AD0148051AD51554003355FD /* Frameworks */,
+				AD0148061AD51554003355FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IMVPullRefreshTable;
+			productName = IMVPullRefreshTable;
+			productReference = AD0148081AD51554003355FD /* IMVPullRefreshTable.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AD0148201AD51555003355FD /* IMVPullRefreshTableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD01482E1AD51555003355FD /* Build configuration list for PBXNativeTarget "IMVPullRefreshTableTests" */;
+			buildPhases = (
+				AD01481D1AD51555003355FD /* Sources */,
+				AD01481E1AD51555003355FD /* Frameworks */,
+				AD01481F1AD51555003355FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD0148231AD51555003355FD /* PBXTargetDependency */,
+			);
+			name = IMVPullRefreshTableTests;
+			productName = IMVPullRefreshTableTests;
+			productReference = AD0148211AD51555003355FD /* IMVPullRefreshTableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD0148001AD51554003355FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = inmovation;
+				TargetAttributes = {
+					AD0148071AD51554003355FD = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					AD0148201AD51555003355FD = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = AD0148071AD51554003355FD;
+					};
+				};
+			};
+			buildConfigurationList = AD0148031AD51554003355FD /* Build configuration list for PBXProject "IMVPullRefreshTable" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AD0147FF1AD51554003355FD;
+			productRefGroup = AD0148091AD51554003355FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD0148071AD51554003355FD /* IMVPullRefreshTable */,
+				AD0148201AD51555003355FD /* IMVPullRefreshTableTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD0148061AD51554003355FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0148171AD51554003355FD /* Main.storyboard in Resources */,
+				AD01481C1AD51554003355FD /* LaunchScreen.xib in Resources */,
+				AD0148191AD51554003355FD /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD01481F1AD51555003355FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD0148041AD51554003355FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0148141AD51554003355FD /* ViewController.m in Sources */,
+				AD0148111AD51554003355FD /* AppDelegate.m in Sources */,
+				AD0148441AD51664003355FD /* TopRefreshViewController.m in Sources */,
+				ADB696FC1AD61B3000935778 /* IMVPullRefreshTableView.m in Sources */,
+				AD01480E1AD51554003355FD /* main.m in Sources */,
+				AD0148431AD51664003355FD /* TopLoadViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD01481D1AD51555003355FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0148281AD51555003355FD /* IMVPullRefreshTableTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD0148231AD51555003355FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD0148071AD51554003355FD /* IMVPullRefreshTable */;
+			targetProxy = AD0148221AD51555003355FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AD0148151AD51554003355FD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD0148161AD51554003355FD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AD01481A1AD51554003355FD /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD01481B1AD51554003355FD /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AD0148291AD51555003355FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AD01482A1AD51555003355FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AD01482C1AD51555003355FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = IMVPullRefreshTable/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AD01482D1AD51555003355FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = IMVPullRefreshTable/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AD01482F1AD51555003355FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = IMVPullRefreshTableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IMVPullRefreshTable.app/IMVPullRefreshTable";
+			};
+			name = Debug;
+		};
+		AD0148301AD51555003355FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = IMVPullRefreshTableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IMVPullRefreshTable.app/IMVPullRefreshTable";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD0148031AD51554003355FD /* Build configuration list for PBXProject "IMVPullRefreshTable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD0148291AD51555003355FD /* Debug */,
+				AD01482A1AD51555003355FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD01482B1AD51555003355FD /* Build configuration list for PBXNativeTarget "IMVPullRefreshTable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD01482C1AD51555003355FD /* Debug */,
+				AD01482D1AD51555003355FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD01482E1AD51555003355FD /* Build configuration list for PBXNativeTarget "IMVPullRefreshTableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD01482F1AD51555003355FD /* Debug */,
+				AD0148301AD51555003355FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD0148001AD51554003355FD /* Project object */;
+}
