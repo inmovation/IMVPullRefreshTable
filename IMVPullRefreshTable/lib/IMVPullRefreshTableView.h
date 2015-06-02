@@ -16,9 +16,6 @@ typedef enum {
     PRTypeTopLoad, //只顶部加载更多
 } PullRefreshType;
 
-typedef void (^RefreshHandler)();
-typedef void (^LoadHandler)();
-
 @interface IMVPullRefreshTableView : UITableView
 
 /**
@@ -26,6 +23,8 @@ typedef void (^LoadHandler)();
  *  当从服务器获取到数据时，可以根据这个变量来决定是否需要删除之前的数据。
  */
 @property (assign, nonatomic) BOOL isRefreshing;
+
+@property (assign, nonatomic) NSInteger page;
 
 /**
  *  当table第一次加载时，并且 PullRefreshType == PRTypeTopLoad, 可以设置这个变量来让table是否滚到最底端。
@@ -69,11 +68,11 @@ typedef void (^LoadHandler)();
  */
 - (void)finishLoading;
 
+- (void)showHint:(NSString *)hint;
+
 /**
  *  需要在数据加载完时调用。
  */
 - (void)reachedEnd;
-
-- (void)pullToRefresh;
 
 @end

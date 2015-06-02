@@ -12,7 +12,6 @@
 @interface TopLoadViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *items;
-@property (assign, nonatomic) NSInteger page;
 
 @property (strong, nonatomic) IMVPullRefreshTableView *table;
 
@@ -25,13 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _page = 0;
-    _items = [NSMutableArray array];
-    for (int i=0; i<10; i++) {
-        [_items insertObject:[NSString stringWithFormat:@"this is row%li", i+_page*10] atIndex:0];
-    }
-    _page++;
-    
+    self.items = [NSMutableArray array];
     _table = [[IMVPullRefreshTableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain pullRefreshType:PRTypeTopLoad];
     _table.dataSource = self;
     _table.delegate = self;
@@ -46,6 +39,7 @@
     [super viewWillAppear:animated];
 //    _table.contentOffset = CGPointMake(0, _table.contentSize.height);
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -53,21 +47,29 @@
 
 - (void)loadStrings
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (_table.isRefreshing) {
-            [_items removeAllObjects];
-            _page = 0;
+    [self requestDataAtPage:self.table.page success:^(NSArray *strings) {
+        if (self.table.isRefreshing) {
+            [self.items removeAllObjects];
         }
-        for (int i=0; i<10; i++) {
-            [_items insertObject:[NSString stringWithFormat:@"this is row%li", i+_page*10] atIndex:0];
+        for (NSString *str in strings) {
+            [self.items insertObject:str atIndex:0];
         }
-        _page++;
-        if (_page == 3) {
-            [_table reachedEnd];
+//        [self.items addObjectsFromArray:strings];
+        
+        if (strings.count<10) {
+            [self.table reachedEnd];
         }
-        [_table reloadData];
-        [_table finishLoading];
-    });
+        if (self.items.count<=0) {
+            
+        }
+        [self.table reloadData];
+        [self.table finishLoading];
+    } failure:^(NSString *msg) {
+        [self.items removeAllObjects];
+        [self.table reloadData];
+        [self.table finishLoading];
+        [self.table showHint:msg];
+    }];
 }
 
 
@@ -104,6 +106,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+
+- (void)requestDataAtPage:(NSInteger)page success:(void(^)(NSArray *))success failure:(void(^)(NSString *))failure
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        sleep(1.5);
+        NSMutableArray *arr = [NSMutableArray array];
+        for (int i=0; i<10; i++) {
+            [arr addObject:[NSString stringWithFormat:@"this is row%li", i+page*10]];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (success) {
+                success(arr);
+            }
+        });
+        
+    });
 }
 /*
 #pragma mark - Navigation

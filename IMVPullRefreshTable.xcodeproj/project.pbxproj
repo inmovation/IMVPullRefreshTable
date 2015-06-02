@@ -16,6 +16,8 @@
 		AD0148281AD51555003355FD /* IMVPullRefreshTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0148271AD51555003355FD /* IMVPullRefreshTableTests.m */; };
 		AD0148431AD51664003355FD /* TopLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD01483F1AD51664003355FD /* TopLoadViewController.m */; };
 		AD0148441AD51664003355FD /* TopRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0148411AD51664003355FD /* TopRefreshViewController.m */; };
+		AD03B13D1B16E8F9007BE53A /* IMVRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD03B13C1B16E8F9007BE53A /* IMVRefreshControl.m */; };
+		AD7161CB1B180132000C39FA /* IMVLoadMoreControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7161CA1B180132000C39FA /* IMVLoadMoreControl.m */; };
 		ADB696FC1AD61B3000935778 /* IMVPullRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB696FB1AD61B3000935778 /* IMVPullRefreshTableView.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,10 @@
 		AD01483F1AD51664003355FD /* TopLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLoadViewController.m; sourceTree = "<group>"; };
 		AD0148401AD51664003355FD /* TopRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopRefreshViewController.h; sourceTree = "<group>"; };
 		AD0148411AD51664003355FD /* TopRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopRefreshViewController.m; sourceTree = "<group>"; };
+		AD03B13B1B16E8F9007BE53A /* IMVRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMVRefreshControl.h; sourceTree = "<group>"; };
+		AD03B13C1B16E8F9007BE53A /* IMVRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMVRefreshControl.m; sourceTree = "<group>"; };
+		AD7161C91B180132000C39FA /* IMVLoadMoreControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMVLoadMoreControl.h; sourceTree = "<group>"; };
+		AD7161CA1B180132000C39FA /* IMVLoadMoreControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMVLoadMoreControl.m; sourceTree = "<group>"; };
 		ADB696FA1AD61B3000935778 /* IMVPullRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMVPullRefreshTableView.h; sourceTree = "<group>"; };
 		ADB696FB1AD61B3000935778 /* IMVPullRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMVPullRefreshTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +144,10 @@
 			children = (
 				ADB696FA1AD61B3000935778 /* IMVPullRefreshTableView.h */,
 				ADB696FB1AD61B3000935778 /* IMVPullRefreshTableView.m */,
+				AD03B13B1B16E8F9007BE53A /* IMVRefreshControl.h */,
+				AD03B13C1B16E8F9007BE53A /* IMVRefreshControl.m */,
+				AD7161C91B180132000C39FA /* IMVLoadMoreControl.h */,
+				AD7161CA1B180132000C39FA /* IMVLoadMoreControl.m */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -243,7 +253,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0148141AD51554003355FD /* ViewController.m in Sources */,
+				AD7161CB1B180132000C39FA /* IMVLoadMoreControl.m in Sources */,
 				AD0148111AD51554003355FD /* AppDelegate.m in Sources */,
+				AD03B13D1B16E8F9007BE53A /* IMVRefreshControl.m in Sources */,
 				AD0148441AD51664003355FD /* TopRefreshViewController.m in Sources */,
 				ADB696FC1AD61B3000935778 /* IMVPullRefreshTableView.m in Sources */,
 				AD01480E1AD51554003355FD /* main.m in Sources */,
