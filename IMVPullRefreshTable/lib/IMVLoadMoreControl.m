@@ -80,7 +80,7 @@ typedef enum {
 - (void)setup
 {
     _reachedEndLabel = [[UILabel alloc] initWithFrame:self.bounds];
-    _reachedEndLabel.backgroundColor = [UIColor redColor];
+    _reachedEndLabel.backgroundColor = [UIColor clearColor];
     _reachedEndLabel.font = [UIFont systemFontOfSize:15.0];
     _reachedEndLabel.textColor = self.tintColor;
     _reachedEndLabel.textAlignment = NSTextAlignmentCenter;
@@ -112,7 +112,7 @@ typedef enum {
 }
 
 - (void)beginLoading {
-    
+    _reachedEndLabel.hidden = YES;
     [_loadingLayers enumerateObjectsUsingBlock:^(CALayer *layer, NSUInteger idx, BOOL *stop) {
         
         CAAnimation *animation = [self animationAtIndex:idx];
@@ -167,13 +167,14 @@ typedef enum {
 - (void)finishLoading
 {
     [self endLoading];
-    _state = LoadMoreStateNormal;
+    if (_state == LoadMoreStateLoading) {
+        _state = LoadMoreStateNormal;
+    }
 }
 
 - (void)reachedEnd
 {
     _reachedEndLabel.hidden = NO;
-    _loadingContainer.hidden = YES;
     _state = LoadMoreStateReachEnd;
 }
 

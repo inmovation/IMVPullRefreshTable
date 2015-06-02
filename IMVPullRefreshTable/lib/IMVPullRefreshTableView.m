@@ -11,25 +11,8 @@
 #import "IMVLoadMoreControl.h"
 #import "IMVRefreshControl.h"
 
-#define PRLoadingViewHeight 60.0
 
-#define KeyPathContentSize @"contentSize"
-#define KeyPathContentOffset @"contentOffset"
-#define KeyPathContentInset @"contentInset"
-
-#define PRAnimationDuration 0.2
-
-typedef enum {
-    PRStateNormal = 0,
-    PRStateLoading,
-    PRStateReachEnd
-} PRState;
-
-
-#pragma mark SFPullRefreshTableView
 @interface IMVPullRefreshTableView ()<UIScrollViewDelegate>
-
-@property (assign, nonatomic) PullRefreshType prType;
 
 @property (assign, nonatomic) CGFloat orignOffsetY; //若navigationBar半透明，则table会有一个初始的contentOffset，和contentInset
 @property (assign, nonatomic) CGFloat orignInsetTop;
@@ -42,7 +25,6 @@ typedef enum {
 
 @property (strong, nonatomic) IMVRefreshControl *refreshControl;
 
-@property (assign, nonatomic) PRState loadingState;
 @property (strong, nonatomic) IMVLoadMoreControl *loadMoreControl;
 
 @property (strong, nonatomic) UILabel *hintLabel;
@@ -218,15 +200,18 @@ typedef enum {
 
 #pragma mark public method
 - (void)reachedEnd {
-    self.loadingState = PRStateReachEnd;
+    if (_loadMoreControl) {
+        [_loadMoreControl reachedEnd];
+    }
 }
 
-- (void)setRefreshTarget:(id)target action:(SEL)action {
+- (void)addTarget:(id)target refreshAction:(SEL)action
+{
     _refreshTarget = target;
     _refreshAction = action;
 }
 
-- (void)setLoadTarget:(id)target action:(SEL)action
+- (void)addTarget:(id)target loadMoreAction:(SEL)action
 {
     _loadTarget = target;
     _loadAction = action;

@@ -30,8 +30,7 @@
     _table.delegate = self;
     [self.view addSubview:_table];
     
-    [_table setLoadTarget:self action:@selector(loadStrings)];
-    [_table setRefreshTarget:self action:@selector(loadStrings)];
+    [_table addTarget:self loadMoreAction:@selector(loadStrings)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -47,6 +46,7 @@
 
 - (void)loadStrings
 {
+    NSLog(@"load string");
     [self requestDataAtPage:self.table.page success:^(NSArray *strings) {
         if (self.table.isRefreshing) {
             [self.items removeAllObjects];
@@ -115,14 +115,27 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         sleep(1.5);
         NSMutableArray *arr = [NSMutableArray array];
-        for (int i=0; i<10; i++) {
-            [arr addObject:[NSString stringWithFormat:@"this is row%li", i+page*10]];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (success) {
-                success(arr);
+        if (page<3) {
+            for (int i=0; i<10; i++) {
+                [arr addObject:[NSString stringWithFormat:@"this is row%li", i+page*10]];
             }
-        });
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (success) {
+                    success(arr);
+                }
+            });
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (success) {
+                    success(arr);
+                }
+                //                if (failure) {
+                //                    failure(@"服务器错误！");
+                //                }
+            });
+        }
         
     });
 }

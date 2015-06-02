@@ -33,8 +33,8 @@
     _table.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:_table];
 
-    [_table setRefreshTarget:self action:@selector(loadStrings)];
-    [_table setLoadTarget:self action:@selector(loadStrings)];
+    [_table addTarget:self loadMoreAction:@selector(loadStrings)];
+    [_table addTarget:self refreshAction:@selector(loadStrings)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +44,7 @@
 
 - (void)loadStrings
 {
+    NSLog(@"load string");
     [self requestDataAtPage:self.table.page success:^(NSArray *strings) {
         if (self.table.isRefreshing) {
             [self.items removeAllObjects];
@@ -122,9 +123,12 @@
         else
         {
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (failure) {
-                    failure(@"服务器错误！");
+                if (success) {
+                    success(arr);
                 }
+//                if (failure) {
+//                    failure(@"服务器错误！");
+//                }
             });
         }
         

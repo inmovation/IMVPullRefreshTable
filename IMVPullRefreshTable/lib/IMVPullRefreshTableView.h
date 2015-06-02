@@ -18,6 +18,8 @@ typedef enum {
 
 @interface IMVPullRefreshTableView : UITableView
 
+@property (assign, nonatomic) PullRefreshType prType;
+
 /**
  *  判断table是不是在刷新。
  *  当从服务器获取到数据时，可以根据这个变量来决定是否需要删除之前的数据。
@@ -48,14 +50,14 @@ typedef enum {
  *  @param target 处理刷新的对象
  *  @param action 处理的方法
  */
-- (void)setRefreshTarget:(id)target action:(SEL)action;
+- (void)addTarget:(id)target refreshAction:(SEL)action;
 /**
  *  用该方法来处理加载更多
  *
  *  @param target 处理加载更多的对象
  *  @param action 处理的方法
  */
-- (void)setLoadTarget:(id)target action:(SEL)action;
+- (void)addTarget:(id)target loadMoreAction:(SEL)action;
 
 /**
  *  @Author liang.tao, 15-02-03 16:02:15
