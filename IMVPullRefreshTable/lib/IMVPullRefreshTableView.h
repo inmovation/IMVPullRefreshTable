@@ -70,6 +70,9 @@ typedef enum {
  */
 - (void)finishLoading;
 
+- (void)refresh;
+- (void)loadMore;
+
 - (void)showHint:(NSString *)hint;
 
 /**

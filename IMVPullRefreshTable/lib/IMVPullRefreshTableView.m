@@ -145,7 +145,7 @@
 
 
 #pragma mark private method
-//开始刷新
+//开始加载更多
 - (void)loadMore
 {
     self.hintView.hidden = YES;
@@ -156,6 +156,7 @@
     }
 }
 
+//开始刷新
 - (void)refresh
 {
     self.hintView.hidden = YES;
