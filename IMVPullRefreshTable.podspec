@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "IMVPullRefreshTableView"
-  s.version      = "1.0.0"
+  s.name         = "IMVPullRefreshTable"
+  s.version      = "1.0.1"
   s.summary      = "subclass of UITableView, support pull to refresh"
 
   s.description  = <<-DESC
