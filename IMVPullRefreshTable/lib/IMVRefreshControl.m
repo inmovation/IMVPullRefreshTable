@@ -79,6 +79,28 @@ NSString* kRotationAnimation = @"RotationAnimation";
     }];
 }
 
+- (void)setOrignInsetTop:(CGFloat)orignInsetTop
+{
+    _orignInsetTop = orignInsetTop;
+    CGRect frame = self.frame;
+    frame.origin.y = _orignInsetTop;
+    self.frame = frame;
+    
+    //必须orignOffsetY和orignInsetTop都有值，才初始刷新
+    if (_orignOffsetY < 10000) {
+        _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height-self.frame.size.height*(1-RefreshContainerRatio)/2);
+    }
+}
+
+- (void)setOrignOffsetY:(CGFloat)orignOffsetY
+{
+    _orignOffsetY = orignOffsetY;
+
+    //必须orignOffsetY和orignInsetTop都有值，才初始刷新
+    if (_orignInsetTop<100000) {
+        _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height-self.frame.size.height*(1-RefreshContainerRatio)/2);
+    }
+}
 
 
 
@@ -183,9 +205,9 @@ NSString* kRotationAnimation = @"RotationAnimation";
     CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     opacityAnimation.fromValue = @(1);
     opacityAnimation.toValue = @(0);
-    opacityAnimation.duration = 1.0;
+    opacityAnimation.duration = 1;
     opacityAnimation.repeatCount = INFINITY;
-    opacityAnimation.timeOffset = 1.0 - index*1.0/RefreshLayerCount;
+    opacityAnimation.timeOffset = 1*(1 - index*1.0/RefreshLayerCount);
     return opacityAnimation;
 }
 
@@ -263,9 +285,7 @@ NSString* kRotationAnimation = @"RotationAnimation";
         if ([keyPath isEqualToString:@"contentOffset"]) {
 
             if (_orignOffsetY > 1000000.0) { // table在透明和不透明，初始contentOffset不一样
-                
-                _orignOffsetY = _target.contentOffset.y;
-                _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height-self.frame.size.height*(1-RefreshContainerRatio)/2);
+                self.orignOffsetY = _target.contentOffset.y;
                 return;
             }
             else
@@ -278,10 +298,7 @@ NSString* kRotationAnimation = @"RotationAnimation";
         } else if ([keyPath isEqualToString:@"contentInset"]) {
             
             if (_orignInsetTop > 1000000.0) { // table在透明和不透明，初始contentInset不一样
-                _orignInsetTop = _target.contentInset.top;
-                CGRect frame = self.frame;
-                frame.origin.y = _orignInsetTop;
-                self.frame = frame;
+                self.orignInsetTop = _target.contentInset.top;
             }
         }
     }

@@ -39,7 +39,7 @@ typedef enum {
 
 - (id)init
 {
-    return [self initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 44)];
+    return [self initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 60)];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -74,6 +74,26 @@ typedef enum {
     [_loadingLayers enumerateObjectsUsingBlock:^(CALayer *layer, NSUInteger idx, BOOL *stop) {
         [layer setBackgroundColor:_tintColor.CGColor];
     }];
+}
+
+- (void)setOrignInsetTop:(CGFloat)orignInsetTop
+{
+    _orignInsetTop = orignInsetTop;
+    
+    //必须orignOffsetY和orignInsetTop都有值，且是顶部加载更多，才初始开始加载
+    if (_orignInsetTop<100000 && _isTop) {
+        _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height);
+    }
+}
+
+- (void)setOrignOffsetY:(CGFloat)orignOffsetY
+{
+    _orignOffsetY = orignOffsetY;
+    
+    //必须orignOffsetY和orignInsetTop都有值，且是顶部加载更多，才初始开始加载
+    if (_orignInsetTop<100000 && _isTop) {
+        _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height);
+    }
 }
 
 #pragma mark - private method
@@ -135,9 +155,9 @@ typedef enum {
     CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     opacityAnimation.fromValue = @(1);
     opacityAnimation.toValue = @(0);
-    opacityAnimation.duration = 1.0;
+    opacityAnimation.duration = 1;
     opacityAnimation.repeatCount = INFINITY;
-    opacityAnimation.timeOffset = 1.0 - index / 12.0;
+    opacityAnimation.timeOffset = 1*(1 - index / 12.0);
     return opacityAnimation;
 }
 
@@ -220,18 +240,13 @@ typedef enum {
             }
         } else if ([keyPath isEqualToString:@"contentOffset"]) {
             if (_orignOffsetY > 1000000.0) { // table在透明和不透明，初始contentOffset不一样
-                
-                _orignOffsetY = _target.contentOffset.y;
-                if (_isTop) {
-                    //顶部加载更多，初始开始加载
-                    _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height);
-                }
+                self.orignOffsetY = _target.contentOffset.y;
             } else {
                 [self tableViewDidScroll];
             }
         } else if ([keyPath isEqualToString:@"contentInset"]) {
             if (_orignInsetTop > 1000000.0) { // table在透明和不透明，初始contentInset不一样
-                _orignInsetTop = _target.contentInset.top;
+                self.orignInsetTop = _target.contentInset.top;
             }
         }
     }

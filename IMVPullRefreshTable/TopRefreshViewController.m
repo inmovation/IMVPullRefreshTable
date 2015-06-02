@@ -55,7 +55,7 @@
             [self.table reachedEnd];
         }
         if (self.items.count<=0) {
-            
+            [self.table showHint:@"empty"];
         }
         [self.table reloadData];
         [self.table finishLoading];
@@ -111,9 +111,9 @@
         sleep(1.5);
         NSMutableArray *arr = [NSMutableArray array];
         if (page<3) {
-            for (int i=0; i<10; i++) {
-                [arr addObject:[NSString stringWithFormat:@"this is row%li", i+page*10]];
-            }
+//            for (int i=0; i<10; i++) {
+//                [arr addObject:[NSString stringWithFormat:@"this is row%li", i+page*10]];
+//            }
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (success) {
                     success(arr);
