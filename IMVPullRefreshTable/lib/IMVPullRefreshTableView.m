@@ -170,7 +170,9 @@
 - (void)refresh
 {
     self.hintView.hidden = YES;
-
+    if (_refreshControl) {
+        _refreshControl.isRefreshing = YES;
+    }
     if (_refreshTarget && [_refreshTarget respondsToSelector:_refreshAction])
     {
         _page = 0; //刷新前page=0
