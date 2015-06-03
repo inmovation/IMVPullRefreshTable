@@ -106,6 +106,16 @@
     }
 }
 
+- (void)setAutoLoading:(BOOL)autoLoading
+{
+    if (_loadMoreControl) {
+        _loadMoreControl.autoLoadMore = autoLoading;
+    }
+    if (_refreshControl) {
+        _refreshControl.autoRefresh = autoLoading;
+    }
+}
+
 - (IMVLoadMoreControl *)loadMoreControl
 {
     if (!_loadMoreControl) {

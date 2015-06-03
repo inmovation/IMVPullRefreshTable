@@ -65,6 +65,7 @@ NSString* kRotationAnimation = @"RotationAnimation";
         _orignInsetTop = CGFLOAT_MAX;
         _orignOffsetY = CGFLOAT_MAX;
         _tintColor = [UIColor colorWithWhite:110.0/255 alpha:1.0];
+        _autoRefresh = YES;
         [self setup];
     }
     return self;
@@ -87,7 +88,7 @@ NSString* kRotationAnimation = @"RotationAnimation";
     self.frame = frame;
     
     //必须orignOffsetY和orignInsetTop都有值，才初始刷新
-    if (_orignOffsetY < 10000) {
+    if (_orignOffsetY < 10000 && _autoRefresh) {
         _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height-self.frame.size.height*(1-RefreshContainerRatio)/2);
     }
 }
@@ -97,7 +98,7 @@ NSString* kRotationAnimation = @"RotationAnimation";
     _orignOffsetY = orignOffsetY;
 
     //必须orignOffsetY和orignInsetTop都有值，才初始刷新
-    if (_orignInsetTop<100000) {
+    if (_orignInsetTop<100000 && _autoRefresh) {
         _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height-self.frame.size.height*(1-RefreshContainerRatio)/2);
     }
 }

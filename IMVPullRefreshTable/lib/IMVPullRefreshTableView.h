@@ -26,6 +26,16 @@ typedef enum {
  */
 @property (assign, nonatomic) BOOL isRefreshing;
 
+/**
+ *  初始化自动刷新，或者当prType=PRTypeTopLoad时，自动加载更多
+ *  默认是YES
+ */
+@property (assign, nonatomic) BOOL autoLoading;
+
+/**
+ *  当前加载第几页，推荐使用这个变量来控制分页
+ *  初始0，加载更多会自动加1，刷新会自动清0
+ */
 @property (assign, nonatomic) NSInteger page;
 
 /**
@@ -60,19 +70,24 @@ typedef enum {
 - (void)addTarget:(id)target loadMoreAction:(SEL)action;
 
 /**
- *  @Author liang.tao, 15-02-03 16:02:15
- *
- *  @brief  tableView自动执行下拉动画刷新
- */
-
-/**
  *  结束加载或刷新
  */
 - (void)finishLoading;
 
+/**
+ *  结束加载或刷新
+ */
 - (void)refresh;
+
+/**
+ *  结束加载或刷新
+ */
 - (void)loadMore;
 
+/**
+ *  当table数据为空时，使用该方法来显示提示文字，比如“服务器错误”，“当前没有数据”，当刷新时会自动消失
+ *  @param hint 需要显示的文字
+ */
 - (void)showHint:(NSString *)hint;
 
 /**

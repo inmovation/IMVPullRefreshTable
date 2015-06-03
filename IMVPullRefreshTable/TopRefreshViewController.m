@@ -31,6 +31,7 @@
     _table.dataSource = self;
     _table.delegate = self;
     _table.tableFooterView = [[UIView alloc] init];
+    _table.autoLoading = NO;
     [self.view addSubview:_table];
 
     [_table addTarget:self loadMoreAction:@selector(loadStrings)];
@@ -42,9 +43,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_table refresh];
+}
+
 - (void)loadStrings
 {
-    NSLog(@"load string");
     [self requestDataAtPage:self.table.page success:^(NSArray *strings) {
         if (self.table.isRefreshing) {
             [self.items removeAllObjects];
@@ -111,9 +117,9 @@
         sleep(1.5);
         NSMutableArray *arr = [NSMutableArray array];
         if (page<3) {
-//            for (int i=0; i<10; i++) {
-//                [arr addObject:[NSString stringWithFormat:@"this is row%li", i+page*10]];
-//            }
+            for (int i=0; i<10; i++) {
+                [arr addObject:[NSString stringWithFormat:@"this is row%li", i+page*10]];
+            }
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (success) {
                     success(arr);

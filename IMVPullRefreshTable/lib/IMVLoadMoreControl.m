@@ -81,7 +81,7 @@ typedef enum {
     _orignInsetTop = orignInsetTop;
     
     //必须orignOffsetY和orignInsetTop都有值，且是顶部加载更多，才初始开始加载
-    if (_orignInsetTop<100000 && _isTop) {
+    if (_orignInsetTop<100000 && _isTop && _autoLoadMore) {
         _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height);
     }
 }
@@ -91,7 +91,7 @@ typedef enum {
     _orignOffsetY = orignOffsetY;
     
     //必须orignOffsetY和orignInsetTop都有值，且是顶部加载更多，才初始开始加载
-    if (_orignInsetTop<100000 && _isTop) {
+    if (_orignInsetTop<100000 && _isTop && _autoLoadMore) {
         _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height);
     }
 }

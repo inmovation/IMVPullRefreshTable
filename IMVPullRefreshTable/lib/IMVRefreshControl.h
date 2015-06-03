@@ -12,6 +12,7 @@
 
 @property (assign, nonatomic) BOOL isRefreshing;
 @property (strong, nonatomic) UIColor *tintColor;
+@property (assign, nonatomic) BOOL autoRefresh;
 
 - (void)addTarget:(UITableView *)target refreshAction:(SEL)action;
 - (void)finishRefreshing;

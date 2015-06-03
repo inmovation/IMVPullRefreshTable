@@ -11,6 +11,7 @@
 @interface IMVLoadMoreControl : UIView
 
 @property (assign, nonatomic) BOOL isTop;
+@property (assign, nonatomic) BOOL autoLoadMore;
 @property (strong, nonatomic) UIColor *tintColor;
 @property (strong, nonatomic) NSString *reachedEndText;
 
