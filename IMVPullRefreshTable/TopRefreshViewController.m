@@ -31,7 +31,7 @@
     _table.dataSource = self;
     _table.delegate = self;
     _table.tableFooterView = [[UIView alloc] init];
-    _table.autoLoading = NO;
+    _table.autoLoading = YES;
     [self.view addSubview:_table];
 
     [_table addTarget:self loadMoreAction:@selector(loadStrings)];
@@ -46,7 +46,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [_table refresh];
 }
 
 - (void)loadStrings

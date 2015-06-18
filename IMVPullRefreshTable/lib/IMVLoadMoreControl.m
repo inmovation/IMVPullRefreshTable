@@ -48,6 +48,7 @@ typedef enum {
         _orignInsetTop = CGFLOAT_MAX;
         _orignOffsetY = CGFLOAT_MAX;
         _tintColor = [UIColor colorWithWhite:110.0/255 alpha:1.0];
+        _autoLoadMore = YES;
         [self setup];
     }
     return self;

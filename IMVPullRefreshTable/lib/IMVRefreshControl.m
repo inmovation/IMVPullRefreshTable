@@ -218,7 +218,7 @@ NSString* kRotationAnimation = @"RotationAnimation";
     sizeAnimation.toValue = [NSNumber numberWithFloat:0];
     sizeAnimation.duration = 0.25f;
     sizeAnimation.repeatCount = 0;
-    sizeAnimation.removedOnCompletion = YES;
+    sizeAnimation.removedOnCompletion = NO;
     sizeAnimation.fillMode = kCAFillModeForwards;
     return sizeAnimation;
 }
@@ -226,10 +226,9 @@ NSString* kRotationAnimation = @"RotationAnimation";
 - (CAAnimation *)rotationAnimationAtIndex:(NSInteger)index {
     CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
     rotationAnimation.fromValue = [NSNumber numberWithFloat:2*M_PI*index/RefreshLayerCount];
-    rotationAnimation.toValue = [NSNumber numberWithFloat:2*M_PI*index/RefreshLayerCount+2*M_PI];
+    rotationAnimation.toValue = [NSNumber numberWithFloat:2*M_PI*index/RefreshLayerCount+M_PI/2];
     rotationAnimation.duration = 0.25f;
     rotationAnimation.repeatCount = 0;
-    rotationAnimation.speed = 1;
     rotationAnimation.removedOnCompletion = YES;
     return rotationAnimation;
 }
@@ -345,4 +344,5 @@ NSString* kRotationAnimation = @"RotationAnimation";
     } completion:nil];
     
 }
+
 @end

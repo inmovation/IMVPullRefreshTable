@@ -36,7 +36,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    _table.contentOffset = CGPointMake(0, _table.contentSize.height);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,8 +115,8 @@
         sleep(1.5);
         NSMutableArray *arr = [NSMutableArray array];
         if (page<3) {
-            for (int i=0; i<10; i++) {
-                [arr addObject:[NSString stringWithFormat:@"this is row%li", i+page*10]];
+            for (NSInteger i=0; i<10; i++) {
+                [arr addObject:[NSString stringWithFormat:@"this is row%i", i+page*10]];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (success) {
