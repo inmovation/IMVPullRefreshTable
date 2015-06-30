@@ -77,6 +77,14 @@ typedef enum {
     }];
 }
 
+//ios6-不会在table初始化时更改offset和inset，故_orignInsetTop和_orignOffsetY有可能还是CGFLOAT_MAX，需要加个判断
+- (CGFloat)orignInsetTop
+{
+    if (_orignInsetTop>1000000.0) {
+        _orignInsetTop = 0;
+    }
+    return _orignInsetTop;
+}
 
 
 #pragma mark - private method
@@ -268,7 +276,7 @@ typedef enum {
                 ((void (*)(id, SEL))[_target methodForSelector:_loadMoreAction])(_target, _loadMoreAction);
             }
             [UIView animateWithDuration:0.1 animations:^{
-                _target.contentInset = UIEdgeInsetsMake(self.frame.size.height+_orignInsetTop, 0, 0, 0);
+                _target.contentInset = UIEdgeInsetsMake(self.frame.size.height+self.orignInsetTop, 0, 0, 0);
             }];
         }
     } else {
@@ -285,7 +293,7 @@ typedef enum {
             }
             
             [UIView animateWithDuration:0.1 animations:^{
-                _target.contentInset = UIEdgeInsetsMake(_orignInsetTop, 0, self.frame.size.height, 0);
+                _target.contentInset = UIEdgeInsetsMake(self.orignInsetTop, 0, self.frame.size.height, 0);
             }];
         }
     }

@@ -28,6 +28,7 @@
     _table = [[IMVPullRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain pullRefreshType:PRTypeTopLoad];
     _table.dataSource = self;
     _table.delegate = self;
+    
     [self.view addSubview:_table];
     
     [_table addTarget:self loadMoreAction:@selector(loadStrings)];
@@ -45,7 +46,6 @@
 
 - (void)loadStrings
 {
-    NSLog(@"load string");
     [self requestDataAtPage:self.table.page success:^(NSArray *strings) {
         if (self.table.isRefreshing) {
             [self.items removeAllObjects];

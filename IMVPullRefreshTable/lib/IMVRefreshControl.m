@@ -48,6 +48,7 @@ NSString* kRotationAnimation = @"RotationAnimation";
 @implementation IMVRefreshControl
 
 @synthesize tintColor = _tintColor;
+@synthesize orignInsetTop = _orignInsetTop;
 
 - (instancetype)init
 {
@@ -88,6 +89,14 @@ NSString* kRotationAnimation = @"RotationAnimation";
     self.frame = frame;
 }
 
+//ios6-不会在table初始化时更改offset和inset，故_orignInsetTop和_orignOffsetY有可能还是CGFLOAT_MAX，需要加个判断
+- (CGFloat)orignInsetTop
+{
+    if (_orignInsetTop>1000000.0) {
+        _orignInsetTop = 0;
+    }
+    return _orignInsetTop;
+}
 
 
 #pragma mark - private method
@@ -252,7 +261,7 @@ NSString* kRotationAnimation = @"RotationAnimation";
     _state = RefreshStateNormal;
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         UIEdgeInsets inset = _target.contentInset;
-        inset.top = _orignInsetTop;
+        inset.top = self.orignInsetTop;
         _target.contentInset = inset;
     } completion:nil];
 }
@@ -327,7 +336,7 @@ NSString* kRotationAnimation = @"RotationAnimation";
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         UIEdgeInsets inset = _target.contentInset;
         
-        inset.top = self.frame.size.height+_orignInsetTop;
+        inset.top = self.frame.size.height+self.orignInsetTop;
         _target.contentInset = inset;
     } completion:nil];
 }
