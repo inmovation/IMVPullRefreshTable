@@ -16,7 +16,7 @@
 @property (strong, nonatomic) NSString *reachedEndText;
 
 - (void)finishLoading;
-- (void)reachedEnd;
+- (void)reachedEnd:(BOOL)reachedEnd;
 - (void)addTarget:(UITableView *)target loadMoreAction:(SEL)action;
 - (void)removeTarget:(UITableView *)target;
 

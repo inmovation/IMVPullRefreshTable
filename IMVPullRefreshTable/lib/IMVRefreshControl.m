@@ -86,21 +86,6 @@ NSString* kRotationAnimation = @"RotationAnimation";
     CGRect frame = self.frame;
     frame.origin.y = _orignInsetTop;
     self.frame = frame;
-    
-    //必须orignOffsetY和orignInsetTop都有值，才初始刷新
-    if (_orignOffsetY < 10000 && _autoRefresh) {
-        _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height-self.frame.size.height*(1-RefreshContainerRatio)/2);
-    }
-}
-
-- (void)setOrignOffsetY:(CGFloat)orignOffsetY
-{
-    _orignOffsetY = orignOffsetY;
-
-    //必须orignOffsetY和orignInsetTop都有值，才初始刷新
-    if (_orignInsetTop<100000 && _autoRefresh) {
-        _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height-self.frame.size.height*(1-RefreshContainerRatio)/2);
-    }
 }
 
 
@@ -246,13 +231,11 @@ NSString* kRotationAnimation = @"RotationAnimation";
     _refreshAction = action;
     
     [target addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-    [target addObserver:self forKeyPath:@"contentInset" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)removeTarget:(UITableView *)target
 {
     [target removeObserver:self forKeyPath:@"contentOffset"];
-    [target removeObserver:self forKeyPath:@"contentInset"];
 }
 
 - (void)refresh
@@ -284,8 +267,17 @@ NSString* kRotationAnimation = @"RotationAnimation";
     if (object == _target) {
         if ([keyPath isEqualToString:@"contentOffset"]) {
 
-            if (_orignOffsetY > 1000000.0) { // table在透明和不透明，初始contentOffset不一样
+            // table在透明和不透明，初始contentOffset不一样
+            if (_orignOffsetY > 1000000.0) {
                 self.orignOffsetY = _target.contentOffset.y;
+                
+                //offset监听到时，inset可能还未初始化，不能将origninsetTop=_target.contentInset.top，而初始时table的contentOffset.y值和contentInset.top值正好相反
+                self.orignInsetTop = -_target.contentOffset.y;
+                
+                //初始刷新，只有ios7+才能触发，ios6中不会在table显示的时候改变contentOffset和inset
+                if (_autoRefresh) {
+                    _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height-self.frame.size.height*(1-RefreshContainerRatio)/2);
+                }
                 return;
             }
             else
@@ -294,11 +286,6 @@ NSString* kRotationAnimation = @"RotationAnimation";
                 if (!_target.isDragging && _state == RefreshStateReleaseToRefresh) {
                     [self tableViewDidEndDragging];
                 }
-            }
-        } else if ([keyPath isEqualToString:@"contentInset"]) {
-            
-            if (_orignInsetTop > 1000000.0) { // table在透明和不透明，初始contentInset不一样
-                self.orignInsetTop = _target.contentInset.top;
             }
         }
     }
@@ -339,10 +326,10 @@ NSString* kRotationAnimation = @"RotationAnimation";
     
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         UIEdgeInsets inset = _target.contentInset;
+        
         inset.top = self.frame.size.height+_orignInsetTop;
         _target.contentInset = inset;
     } completion:nil];
-    
 }
 
 @end

@@ -170,6 +170,9 @@
 - (void)refresh
 {
     self.hintView.hidden = YES;
+    if (_loadMoreControl) {
+        [_loadMoreControl reachedEnd:NO];
+    }
     if (_refreshControl) {
         _refreshControl.isRefreshing = YES;
     }
@@ -177,6 +180,7 @@
     {
         _page = 0; //刷新前page=0
         ((void (*)(id, SEL))[_refreshTarget methodForSelector:_refreshAction])(_refreshTarget, _refreshAction);
+        _page ++; //加载更多后page+1
     }
 }
 
@@ -214,7 +218,7 @@
 #pragma mark public method
 - (void)reachedEnd {
     if (_loadMoreControl) {
-        [_loadMoreControl reachedEnd];
+        [_loadMoreControl reachedEnd:YES];
     }
 }
 

@@ -25,7 +25,7 @@
     // Do any additional setup after loading the view.
     
     self.items = [NSMutableArray array];
-    _table = [[IMVPullRefreshTableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain pullRefreshType:PRTypeTopLoad];
+    _table = [[IMVPullRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain pullRefreshType:PRTypeTopLoad];
     _table.dataSource = self;
     _table.delegate = self;
     [self.view addSubview:_table];

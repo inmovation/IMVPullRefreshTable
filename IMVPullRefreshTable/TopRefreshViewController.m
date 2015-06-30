@@ -26,7 +26,7 @@
     
     _items = [NSMutableArray array];
     
-    _table = [[IMVPullRefreshTableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain pullRefreshType:PRTypeTopRefreshBottomLoad];
+    _table = [[IMVPullRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain pullRefreshType:PRTypeTopRefreshBottomLoad];
 //    _table.tintColor = [UIColor redColor];
     _table.dataSource = self;
     _table.delegate = self;

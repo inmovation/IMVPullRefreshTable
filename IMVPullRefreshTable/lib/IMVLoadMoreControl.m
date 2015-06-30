@@ -77,25 +77,7 @@ typedef enum {
     }];
 }
 
-- (void)setOrignInsetTop:(CGFloat)orignInsetTop
-{
-    _orignInsetTop = orignInsetTop;
-    
-    //必须orignOffsetY和orignInsetTop都有值，且是顶部加载更多，才初始开始加载
-    if (_orignInsetTop<100000 && _isTop && _autoLoadMore) {
-        _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height);
-    }
-}
 
-- (void)setOrignOffsetY:(CGFloat)orignOffsetY
-{
-    _orignOffsetY = orignOffsetY;
-    
-    //必须orignOffsetY和orignInsetTop都有值，且是顶部加载更多，才初始开始加载
-    if (_orignInsetTop<100000 && _isTop && _autoLoadMore) {
-        _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height);
-    }
-}
 
 #pragma mark - private method
 - (void)setup
@@ -175,14 +157,12 @@ typedef enum {
     
     [target addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     [target addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-    [target addObserver:self forKeyPath:@"contentInset" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)removeTarget:(UITableView *)target
 {
     [target removeObserver:self forKeyPath:@"contentSize"];
     [target removeObserver:self forKeyPath:@"contentOffset"];
-    [target removeObserver:self forKeyPath:@"contentInset"];
 }
 
 - (void)finishLoading
@@ -193,10 +173,17 @@ typedef enum {
     }
 }
 
-- (void)reachedEnd
+- (void)reachedEnd:(BOOL)reachedEnd
 {
-    _reachedEndLabel.hidden = NO;
-    _state = LoadMoreStateReachEnd;
+    if (reachedEnd) {
+        _reachedEndLabel.hidden = NO;
+        _state = LoadMoreStateReachEnd;
+    }
+    else
+    {
+        _reachedEndLabel.hidden = YES;
+        _state = LoadMoreStateNormal;
+    }
 }
 
 
@@ -240,14 +227,19 @@ typedef enum {
                 }
             }
         } else if ([keyPath isEqualToString:@"contentOffset"]) {
-            if (_orignOffsetY > 1000000.0) { // table在透明和不透明，初始contentOffset不一样
+            // table在透明和不透明，初始contentOffset不一样
+            if (_orignOffsetY > 1000000.0) {
                 self.orignOffsetY = _target.contentOffset.y;
+                
+                //offset监听到时，inset可能还未初始化，不能将origninsetTop=_target.contentInset.top，而初始时table的contentOffset.y值和contentInset.top值正好相反
+                self.orignInsetTop = -_target.contentOffset.y;
+                
+                //必须是顶部加载更多，才初始开始加载，只有ios7+才能触发，ios6中不会在table显示的时候改变contentOffset和inset
+                if (_isTop && _autoLoadMore) {
+                    _target.contentOffset = CGPointMake(0, _orignOffsetY-self.frame.size.height);
+                }
             } else {
                 [self tableViewDidScroll];
-            }
-        } else if ([keyPath isEqualToString:@"contentInset"]) {
-            if (_orignInsetTop > 1000000.0) { // table在透明和不透明，初始contentInset不一样
-                self.orignInsetTop = _target.contentInset.top;
             }
         }
     }
