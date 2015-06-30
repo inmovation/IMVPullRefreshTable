@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "IMVPullRefreshTable"
-  s.version      = "1.1.4"
+  s.version      = “1.1.5”
   s.summary      = "subclass of UITableView, support pull to refresh"
 
   s.description  = <<-DESC
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/inmovation/IMVPullRefreshTable.git", :tag => "1.1.4" }
+  s.source       = { :git => "https://github.com/inmovation/IMVPullRefreshTable.git", :tag => "1.1.5" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
