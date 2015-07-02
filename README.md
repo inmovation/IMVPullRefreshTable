@@ -20,9 +20,11 @@ pod 'IMVPullRefreshTable', '~> 1.1.5'
 ### Usage
 IMVPullRefreshTable provide a elegant usage.  
 Firstly and most exciting, you don't need care about scroll delegate, just init it and do something when request callback, IMVPullRefreshTable will do the rest thing.   
+
 And IMVPullRefreshTable provide page property, that you can use it to request current page data, you don't need care about page value, IMVPullRefreshTable will do page++ when load data, and page=0 when refresh.   
+
 And IMVPullRefreshTable provide a hintView, that you can show hints to user, like error message or empty data message.   
-Lastly, you can implement your own refresh anmation by creating a subclass of it, not recommend.
+
 Enjoy it.
 #### init
 ```objective-c
