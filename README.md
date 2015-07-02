@@ -1,5 +1,5 @@
 
-IMVPullRefreshTable is a subclass of UITableView, implements pulling down to refresh, pulling up to load more, pulling down to load more. Support iOS5+.
+IMVPullRefreshTable is a subclass of UITableView with refresh animation like UIRefreshControl, and implements pulling down to refresh, pulling up to load more, pulling down to load more. Support iOS5+.
 
 
 ### Installation with CocoaPods
